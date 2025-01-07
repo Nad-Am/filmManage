@@ -10,7 +10,8 @@ const agree = (userId,status) => {
         userId,
         status
     },true,true).then(()=>{
-        console.log('ok')
+        const index = userlist.findIndex(i => i.id === userId)
+        userlist.splice(index,1);
     })
 }
 

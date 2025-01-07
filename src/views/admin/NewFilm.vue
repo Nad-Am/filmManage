@@ -1,5 +1,6 @@
 <script setup>
 import { reactive,ref } from 'vue';
+import { ElMessage } from 'element-plus';
 import { DoAxiosWithErro } from '@/api';
 
 
@@ -60,7 +61,22 @@ const sunmit = async () => {
     formdata.append('category',radio1.value);
     formdata.append('img',info.file);
     DoAxiosWithErro('/api/admin/add','post',formdata,true).then(()=>{
-        console.log('ok')
+        title.value = '',
+        description.value = '';
+        info.bj = '';
+        info.file = null;
+        info.bj = ''
+        info.zy = ''
+        info.lx = ''
+        info.yy = ''
+        info.sy = ''
+        info.pc = ''
+        info.pc = ''
+        info.dy = ''
+        ElMessage({
+            message:'上传成功',
+            type:'success'
+        })
     })
 }
 

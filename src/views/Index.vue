@@ -16,8 +16,6 @@ const handleT = (mess) =>{
 
 <template>
   <div class="Index">
-    INDE
-    <router-link to="/home">home</router-link>
     <div class="login">
       <log-in @turnLoR="handleT" v-show="data.isShow === 'login'"></log-in>
        <regi-ster @turnLoR="handleT" v-show="data.isShow === 'register'" ></regi-ster>

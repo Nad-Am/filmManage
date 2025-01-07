@@ -1,5 +1,8 @@
 <script setup>
 import Menue from '@/components/admin/Menue.vue';
+import {useUserStore} from '@/stores/user'
+const userStor = useUserStore();
+
 </script>
 
 <template>
@@ -11,8 +14,11 @@ import Menue from '@/components/admin/Menue.vue';
                     <el-avatar
                         src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
                     />
-                    <span style="font-size: small; padding: 10px 2px 2px 2px;">Nad Am</span>
+                    <span style="font-size: small; padding: 10px 2px 2px 2px;">{{ userStor.userInfo.username }}</span>
                 </div>
+                <el-button @click="tohome">
+                    <router-link to="/home">home</router-link>
+                </el-button>
             </el-header>
             <el-main class="main">
                 <el-container>

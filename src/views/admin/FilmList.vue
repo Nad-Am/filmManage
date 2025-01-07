@@ -13,6 +13,7 @@ const pageNo = ref(1)
 const pageSize = 20
 
 const handleMore = async () => {
+    console.log('ij')
   if (!scoll.value || isfetching.value) return;
   const scrollTop = scoll.value.scrollTop; // 当前滚动位置
   const scrollHeight = scoll.value.scrollHeight; // 滚动区域总高度

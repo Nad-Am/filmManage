@@ -42,7 +42,7 @@ onMounted( async () => {
     id
   },true)
   imageUrl.value = info.data.imageUrl;
-  title.value = info.data.titile
+  title.value = info.data.title
   description.value = info.data.description
   avgScore.value = info.data.avgScore
   infom.value = info.data.info
@@ -62,9 +62,9 @@ onMounted( async () => {
 <template>
   <div class="about">
     <h1 
-    style="margin: 10px ; border-bottom: 1px solid rgb(238, 238, 236);"
+    style="height: 40px; margin: 10px ; border-bottom: 1px solid rgb(238, 238, 236);"
     >
-      这个杀手不好惹
+      {{ title }}
     </h1>
     <div class="content">
       <img style="width: 250px; height: 400px; object-fit: cover;" :src="imageUrl" alt="">
@@ -78,7 +78,7 @@ onMounted( async () => {
            :style="`background-position: 0 -${(10 - Math.round(avgScore)) * 20}px;`"
            ></div>
           <div class="peop">
-            1223人评论过
+            {{ commlist.length }}人评论过
           </div>
         </div>
       </div>
@@ -93,13 +93,13 @@ onMounted( async () => {
       </div>
     </div>
     <div class="descrip">
-      <div class="descTitle">这个杀手不冷静的简介....</div>
+      <div class="descTitle">{{ title }}的简介....</div>
       <div class="descContent">
         &nbsp;&nbsp;&nbsp;{{ description }}
       </div>
     </div>
     <div class="comment">
-      <div class="commentTitle">这个杀手不冷静的影评....</div>
+      <div class="commentTitle">{{ title }}的影评....</div>
       <div class="commentConten">
         <div v-for="(item,index) in commlist" :key="item.id" class="item">
           <CommentList :detal="item"></CommentList>
