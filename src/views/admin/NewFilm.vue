@@ -6,7 +6,7 @@ import { DoAxiosWithErro } from '@/api';
 const img = reactive(null)
 const description = ref('');
 const title = ref('')
-const category = ref('');
+const radio1 = ref('Action')
 const info = reactive({
     file:'',
     dy:'',
@@ -57,7 +57,7 @@ const sunmit = async () => {
     formdata.append('title',title.value);
     formdata.append('info',movieinfo);
     formdata.append('description',description.value);
-    formdata.append('category',category.value);
+    formdata.append('category',radio1.value);
     formdata.append('img',info.file);
     DoAxiosWithErro('/api/admin/add','post',formdata,true).then(()=>{
         console.log('ok')
@@ -77,7 +77,12 @@ const sunmit = async () => {
         </div>
         <div class="type">
             电影类型：
-            <el-input v-model="category" style="width: 200px;" placeholder="请输入电影名称"></el-input>
+            <el-radio-group v-model="radio1">
+                <el-radio value="Action" size="large">动作电影</el-radio>
+                <el-radio value="Comedy" size="large">喜剧电影</el-radio>
+                <el-radio value="Anime" size="large">动画电影</el-radio>
+                <el-radio value="Romance" size="large">爱情电影</el-radio>
+            </el-radio-group>
         </div>
         <div class="inf">
             电影详情：

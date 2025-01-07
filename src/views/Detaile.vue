@@ -111,6 +111,9 @@ onMounted( async () => {
             删除
           </el-button>
         </div>
+        <div v-if="commlist.length == 0" style="width: 100%; height: 50px;">
+          <el-empty description="还没有评论哦"></el-empty>
+        </div>
       </div>
     </div>
   </div>
